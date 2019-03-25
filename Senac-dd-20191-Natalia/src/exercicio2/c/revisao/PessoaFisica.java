@@ -1,4 +1,4 @@
-package exercicio2.C.revisao;
+package exercicio2.c.revisao;
 
 public class PessoaFisica extends Cliente {
 

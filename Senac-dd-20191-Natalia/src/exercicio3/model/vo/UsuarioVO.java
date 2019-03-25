@@ -7,18 +7,20 @@ public class UsuarioVO {
 	private String email;
 	private String senha;
 	private String nivel;
-	
+	private NivelVO nivelVO;
+
 	public UsuarioVO() {
 		super();
 	}
 
-	public UsuarioVO(int id, String nome, String email, String senha, String nivel) {
+	public UsuarioVO(int id, String nome, String email, String senha, String nivel, NivelVO nivelVO) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
 		this.nivel = nivel;
+		this.nivelVO = nivelVO;
 	}
 
 	public int getId() {
@@ -60,4 +62,13 @@ public class UsuarioVO {
 	public void setNivel(String nivel) {
 		this.nivel = nivel;
 	}
+
+	public NivelVO getNivelVO() {
+		return nivelVO;
+	}
+
+	public void setNivelVO(NivelVO nivelVO) {
+		this.nivelVO = nivelVO;
+	}
+
 }

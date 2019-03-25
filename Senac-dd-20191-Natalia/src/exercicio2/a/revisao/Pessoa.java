@@ -1,4 +1,4 @@
-package exercicio2.A.revisao;
+package exercicio2.a.revisao;
 
 public abstract class Pessoa {
 

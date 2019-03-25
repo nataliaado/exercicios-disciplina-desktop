@@ -1,9 +1,9 @@
-package exercicio2.A.revisao;
+package exercicio2.a.revisao;
 
 public class Cliente extends Pessoa {
 
 	private Endereco endereco;
-	private Telefone[] telefone;
+	private Telefone[] telefones;
 
 	public Cliente() {
 		super();
@@ -13,10 +13,10 @@ public class Cliente extends Pessoa {
 		super(nome, cpf);
 	}
 
-	public Cliente(Endereco endereco, Telefone[] telefone) {
+	public Cliente(Endereco endereco, Telefone[] telefones) {
 		super();
 		this.endereco = endereco;
-		this.telefone = telefone;
+		this.telefones = telefones;
 	}
 
 	public Endereco getEndereco() {
@@ -27,12 +27,12 @@ public class Cliente extends Pessoa {
 		this.endereco = endereco;
 	}
 
-	public Telefone[] getTelefone() {
-		return telefone;
+	public Telefone[] getTelefones() {
+		return telefones;
 	}
 
-	public void setTelefone(Telefone[] telefone) {
-		this.telefone = telefone;
+	public void setTelefones(Telefone[] telefones) {
+		this.telefones = telefones;
 	}
 
 }
