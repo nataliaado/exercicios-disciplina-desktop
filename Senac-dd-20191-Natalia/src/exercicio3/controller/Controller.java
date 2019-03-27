@@ -11,22 +11,23 @@ public class Controller {
 		if (nome == null || nome.trim().isEmpty()) {
 			mensagem = "Preenche o nome";
 		}
-
+		
 		if (email == null || email.trim().isEmpty()) {
 			mensagem = "Preenche o email";
 		}
-
+		
 		if (nivel == null || nivel.trim().isEmpty()) {
 			mensagem = "Preenche o nivel";
 		}
-
+		
 		if (senhaTentativa == null || senhaTentativa.trim().isEmpty()) {
 			mensagem = "Preenche a senha";
 		}
-
+		
 		if (senhaConfirma == null || senhaConfirma.trim().isEmpty()) {
 			mensagem = "Preenche a senha de Confirmação";
 		}
+		
 		if (senhaTentativa != senhaConfirma) {
 			mensagem = "Senha incorreta, digite novamente";
 		}
@@ -60,6 +61,9 @@ public class Controller {
 			mensagem = "Preenche o nivel";
 		}
 		if (mensagem.isEmpty()) {
+			UsuarioVO usuarioVO = new UsuarioVO();
+			usuarioVO.setId(id);
+
 			UsuarioBO usuarioBO = new UsuarioBO();
 			usuarioBO.excluir(mensagem);
 		}
