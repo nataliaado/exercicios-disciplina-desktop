@@ -81,7 +81,7 @@ public class Controller {
 			mensagem = "Preenche a senha";
 		}
 		if (mensagem.isEmpty()) {
-			
+
 			UsuarioVO usuarioVO = new UsuarioVO();
 			usuarioVO.setNome(nome);
 			usuarioVO.setEmail(email);
@@ -92,7 +92,6 @@ public class Controller {
 			usuarioBO.listar(usuarioVO);
 		}
 		return mensagem;
-
 	}
-
+	
 }
