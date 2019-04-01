@@ -19,9 +19,10 @@ public class UsuarioBO {
 		if (usuarioVO.getSenha().length() < 6) {
 			mensagem = "Erro ao salvar senha, digite uma senha com mais de 6 caracteres";
 		}
-		if (usuarioVO.getNivel() == null) {
+		if (usuarioVO.getNivelVO() == null) {
 			mensagem = "Erro ao salvar nível, digite um nível";
-		} else {
+		}
+		if (mensagem.isEmpty()) {
 			int statusPersistencia = usuarioDAO.salvarUsuarioDAO(usuarioVO);
 
 			if (statusPersistencia == 1) {
@@ -33,11 +34,27 @@ public class UsuarioBO {
 		return mensagem;
 	}
 
-	public void excluir(UsuarioVO usuarioVO) {
+	public String excluir(UsuarioVO usuarioVO) {
+		String mensagem = "";
 
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+		if (usuarioVO.getId() == 0) {
+			mensagem = "Erro ao excluir usuário, digite o id novamente";
+		}
+		if (mensagem.isEmpty()) {
+			int statusPersistencia = usuarioDAO.salvarUsuarioDAO(usuarioVO);
+
+			if (statusPersistencia == 1) {
+				mensagem = "Usuário excluido com sucesso";
+			} else if (statusPersistencia == 0) {
+				mensagem = "Erro ao excluir usuário";
+			}
+		}
+		return mensagem;
 	}
 
-	public String listar(UsuarioVO usuarioVO) {
+	public String listarPorNivel(UsuarioVO usuarioVO) {
 		String mensagem = "";
 
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
@@ -51,9 +68,10 @@ public class UsuarioBO {
 		if (usuarioVO.getSenha().length() < 6) {
 			mensagem = "Erro ao listar senha, digite uma senha com mais de 6 caracteres";
 		}
-		if (usuarioVO.getNivel() == null) {
+		if (usuarioVO.getNivelVO() == null) {
 			mensagem = "Erro ao listar nível, digite um nível";
-		} else {
+		}
+		if (mensagem.isEmpty()) {
 			int statusPersistencia = usuarioDAO.salvarUsuarioDAO(usuarioVO);
 
 			if (statusPersistencia == 1) {
@@ -65,4 +83,11 @@ public class UsuarioBO {
 		return mensagem;
 	}
 
+	public void listarPorNome(UsuarioVO usuarioVO) {
+		
+	}
+
+	public String listarTodos(UsuarioVO usuarioVO) {
+		return null;
+	}
 }

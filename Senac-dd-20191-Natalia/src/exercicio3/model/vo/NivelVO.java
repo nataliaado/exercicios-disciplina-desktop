@@ -4,17 +4,16 @@ public class NivelVO {
 
 	private int id;
 	private String descricao;
-	private boolean flagAtivo;
-
+	
 	public NivelVO() {
 		super();
 	}
 
-	public NivelVO(int id, String descricao, boolean flagAtivo) {
+	public NivelVO(int id, String descricao) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
-		this.flagAtivo = flagAtivo;
+		
 	}
 
 	public int getId() {
@@ -31,14 +30,6 @@ public class NivelVO {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
-	public boolean isFlagAtivo() {
-		return flagAtivo;
-	}
-
-	public void setFlagAtivo(boolean flagAtivo) {
-		this.flagAtivo = flagAtivo;
 	}
 
 }
