@@ -3,6 +3,7 @@ package exercicio3.controller;
 import exercicio3.model.bo.UsuarioBO;
 import exercicio3.model.vo.NivelVO;
 import exercicio3.model.vo.UsuarioVO;
+import java.util.ArrayList;
 
 public class Controller {
 
@@ -79,22 +80,17 @@ public class Controller {
 		return mensagem;
 	}
 
-	public String listarPorNome(UsuarioVO usuarioVO) {
-		String mensagem = "";
-
-		if (usuarioVO == null) {
-			mensagem = "Selecione um usuário";
+	public UsuarioVO listarPorNome(String nome) throws Exception {
+		if (nome == null) {
+			throw new Exception("Selecione um usuário");
 		}
-		if (mensagem.isEmpty()) {
-			UsuarioBO usuarioBO = new UsuarioBO();
-			usuarioBO.listarPorNome(usuarioVO);
-		}
-		return mensagem;
-	}
-
-	public String listarTodos(UsuarioVO usuarioVO) {
 		UsuarioBO usuarioBO = new UsuarioBO();
-		return usuarioBO.listarTodos(usuarioVO);
+		usuarioBO.listarPorNome(nome);
+		return usuarioBO.listarPorNome(nome);
 	}
 
+	public ArrayList<UsuarioVO> listarTodos() {
+		UsuarioBO usuarioBO = new UsuarioBO();
+		return usuarioBO.listarTodos();
+	}
 }
