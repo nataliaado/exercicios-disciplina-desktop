@@ -7,20 +7,18 @@ public class UsuarioVO {
 	private String email;
 	private String senha;
 	private NivelVO nivelVO;
-	private boolean flagAtivo;
 
 	public UsuarioVO() {
 		super();
 	}
 
-	public UsuarioVO(int id, String nome, String email, String senha, NivelVO nivelVO, boolean flagAtivo) {
+	public UsuarioVO(int id, String nome, String email, String senha, NivelVO nivelVO) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
 		this.nivelVO = nivelVO;
-		this.flagAtivo = flagAtivo;
 	}
 
 	public int getId() {
@@ -62,13 +60,4 @@ public class UsuarioVO {
 	public void setNivelVO(NivelVO nivelVO) {
 		this.nivelVO = nivelVO;
 	}
-
-	public boolean isFlagAtivo() {
-		return flagAtivo;
-	}
-
-	public void setFlagAtivo(boolean flagAtivo) {
-		this.flagAtivo = flagAtivo;
-	}
-
 }

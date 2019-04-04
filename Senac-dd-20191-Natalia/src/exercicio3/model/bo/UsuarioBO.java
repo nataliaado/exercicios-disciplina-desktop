@@ -1,6 +1,7 @@
 package exercicio3.model.bo;
 
 import exercicio3.model.dao.UsuarioDAO;
+import exercicio3.model.vo.NivelVO;
 import exercicio3.model.vo.UsuarioVO;
 import java.util.ArrayList;
 
@@ -35,26 +36,6 @@ public class UsuarioBO {
 		return mensagem;
 	}
 
-	public String excluir(UsuarioVO usuarioVO) {
-		String mensagem = "";
-
-		UsuarioDAO usuarioDAO = new UsuarioDAO();
-
-		if (usuarioVO.getId() == 0) {
-			mensagem = "Erro ao excluir usuário, digite o id novamente";
-		}
-		if (mensagem.isEmpty()) {
-			int statusPersistencia = usuarioDAO.salvarUsuarioDAO(usuarioVO);
-
-			if (statusPersistencia == 1) {
-				mensagem = "Usuário excluido com sucesso";
-			} else if (statusPersistencia == 0) {
-				mensagem = "Erro ao excluir usuário";
-			}
-		}
-		return mensagem;
-	}
-
 	public String listarPorNivel(UsuarioVO usuarioVO) {
 		String mensagem = "";
 
@@ -84,4 +65,28 @@ public class UsuarioBO {
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		return usuarioDAO.listarPorNome(nome);
 	}
+
+	public ArrayList<UsuarioVO> listarPorNivel(NivelVO nivel) {
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+		return usuarioDAO.listarPorNivel(nivel);
+	}
+
+	public String excluir(UsuarioVO usuarioNormal, UsuarioVO usuarioADM) {
+		String mensagem = "";
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+		if (usuarioDAO.existeRegistroADM(usuarioADM) == false) {
+			mensagem = "Usuário Admin de e-mail e senha inexistente";
+		} else {
+			int statusPersistencia = usuarioDAO.excluir(usuarioNormal);
+
+			if (statusPersistencia == 1) {
+				mensagem = "Usuário excluido com sucesso";
+			} else if (statusPersistencia == 0) {
+				mensagem = "Erro ao excluir usuário";
+			}
+		}
+		return mensagem;
+	}
+
 }

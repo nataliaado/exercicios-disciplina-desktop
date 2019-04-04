@@ -41,10 +41,10 @@ public class Controller {
 		return mensagem;
 	}
 
-	public String excluir(int idInformado, String email, String senha) {
+	public String excluir(String idInformado, String email, String senha) {
 		String mensagem = "";
 
-		if (idInformado == 0) {
+		if (idInformado == null || idInformado.trim().isEmpty()) {
 			mensagem = "Preenche o Id";
 		}
 		if (email == null || email.trim().isEmpty()) {
@@ -53,31 +53,27 @@ public class Controller {
 		if (senha == null || senha.trim().isEmpty()) {
 			mensagem = "Preenche a senha";
 		}
-
 		if (mensagem.isEmpty()) {
-			UsuarioVO usuarioVO = new UsuarioVO();
-			usuarioVO.setId(idInformado);
+			UsuarioVO usuarioNormal = new UsuarioVO();
+			usuarioNormal.setId(Integer.parseInt(idInformado));
+
+			UsuarioVO usuarioADM = new UsuarioVO();
+			usuarioADM.setEmail(email);
+			usuarioADM.setSenha(senha);
 
 			UsuarioBO usuarioBO = new UsuarioBO();
-			usuarioBO.excluir(usuarioVO);
+			usuarioBO.excluir(usuarioNormal, usuarioADM);
 		}
 		return mensagem;
 	}
 
-	public String listarPorNivel(NivelVO nivel) {
-		String mensagem = "";
-
+	public ArrayList<UsuarioVO> listarPorNivel(NivelVO nivel) throws Exception {
 		if (nivel == null) {
-			mensagem = "Preenche o nivel";
+			throw new Exception("Selecione um nível");
 		}
-		if (mensagem.isEmpty()) {
-			UsuarioVO usuarioVO = new UsuarioVO();
-			usuarioVO.setNivelVO(nivel);
-
-			UsuarioBO usuarioBO = new UsuarioBO();
-			usuarioBO.listarPorNivel(usuarioVO);
-		}
-		return mensagem;
+		UsuarioBO usuarioBO = new UsuarioBO();
+		usuarioBO.listarPorNivel(nivel);
+		return usuarioBO.listarPorNivel(nivel);
 	}
 
 	public UsuarioVO listarPorNome(String nome) throws Exception {
