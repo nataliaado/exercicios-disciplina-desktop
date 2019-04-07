@@ -7,35 +7,6 @@ import java.util.ArrayList;
 
 public class UsuarioBO {
 
-	public String salvar(UsuarioVO usuarioVO) {
-		String mensagem = "";
-
-		UsuarioDAO usuarioDAO = new UsuarioDAO();
-
-		if (usuarioVO.getNome().length() < 3) {
-			mensagem = "Erro ao salvar nome, digite o nome todo";
-		}
-		if (usuarioVO.getEmail().split("@") == null) {
-			mensagem = "Erro ao salvar email, digite corretamente novamente";
-		}
-		if (usuarioVO.getSenha().length() < 6) {
-			mensagem = "Erro ao salvar senha, digite uma senha com mais de 6 caracteres";
-		}
-		if (usuarioVO.getNivelVO() == null) {
-			mensagem = "Erro ao salvar nível, digite um nível";
-		}
-		if (mensagem.isEmpty()) {
-			int statusPersistencia = usuarioDAO.salvarUsuarioDAO(usuarioVO);
-
-			if (statusPersistencia == 1) {
-				mensagem = "Usuário salvo com sucesso";
-			} else if (statusPersistencia == 0) {
-				mensagem = "Erro ao salvar usuário";
-			}
-		}
-		return mensagem;
-	}
-
 	public String listarPorNivel(UsuarioVO usuarioVO) {
 		String mensagem = "";
 
@@ -89,4 +60,43 @@ public class UsuarioBO {
 		return mensagem;
 	}
 
+	public String salvar(String nome, String email, String senhaTentativa, NivelVO nivel) {
+		String mensagem = "";
+
+		if (nome.length() < 3) {
+			mensagem = "Nome inválido. Mínimo de 3 caracteres";
+		} else if (!emailCorreto(email)) {
+			mensagem = "Email inválido. Somente um '@'";
+		} else if (senhaTentativa.length() < 6) {
+			mensagem = "Senha inválida. Mínimo de 6 caracteres";
+		} else if (nivel == null) {
+			mensagem = "Nivel inválido";
+		} else if (mensagem.isEmpty()) {
+			UsuarioVO usuario = new UsuarioVO();
+			usuario.setNome(nome);
+			usuario.setEmail(email);
+			usuario.setSenha(senhaTentativa);
+			usuario.setNivelVO(nivel);
+
+			UsuarioDAO usuarioDAO = new UsuarioDAO();
+			int statusPersistencia = usuarioDAO.salvarUsuarioDAO(usuario);
+
+			if (statusPersistencia >= 1) {
+				mensagem = "Usuario salvo com sucesso";
+			} else {
+				mensagem = "Erro ao salvar usuario";
+			}
+		}
+		return mensagem;
+
+	}
+
+	private boolean emailCorreto(String email) {
+		boolean emailCorreto = false;
+		String[] partes = email.split("@");
+		if (partes.length == 2) {
+			emailCorreto = true;
+		}
+		return emailCorreto;
+	}
 }

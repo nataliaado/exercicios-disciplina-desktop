@@ -5,6 +5,8 @@ import exercicio3.model.vo.NivelVO;
 import exercicio3.model.vo.UsuarioVO;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Controller {
 
 	public String salvar(String nome, String email, NivelVO nivel, String senhaTentativa, String senhaConfirma) {
@@ -12,41 +14,28 @@ public class Controller {
 
 		if (nome == null || nome.trim().isEmpty()) {
 			mensagem = "Preenche o nome";
-		}
-		if (email == null || email.trim().isEmpty()) {
+		} else if (email == null || email.trim().isEmpty()) {
 			mensagem = "Preenche o email";
-		}
-		if (nivel == null) {
+		} else if (nivel == null) {
 			mensagem = "Preenche o nivel";
-		}
-		if (senhaTentativa == null || senhaTentativa.trim().isEmpty()) {
+		} else if (senhaTentativa == null || senhaTentativa.trim().isEmpty()) {
 			mensagem = "Preenche a senha";
-		}
-		if (senhaConfirma == null || senhaConfirma.trim().isEmpty()) {
+		} else if (senhaConfirma == null || senhaConfirma.trim().isEmpty()) {
 			mensagem = "Preenche a senha de Confirmação";
-		}
-		if (senhaTentativa != senhaConfirma) {
+		} else if (senhaTentativa != senhaConfirma) {
 			mensagem = "Senha incorreta, digite novamente";
-		}
-		if (mensagem.isEmpty()) {
-			UsuarioVO usuarioVO = new UsuarioVO();
-			usuarioVO.setNome(nome);
-			usuarioVO.setEmail(email);
-			usuarioVO.setNivelVO(nivel);
-			usuarioVO.setSenha(senhaTentativa);
-
+		} else if (!senhaTentativa.equals(senhaConfirma)) {
+			mensagem = "Senha incorreta, digite novamente!";
+		} else if (mensagem.isEmpty()) {
 			UsuarioBO usuarioBO = new UsuarioBO();
-			usuarioBO.salvar(usuarioVO);
+			mensagem = usuarioBO.salvar(nome, email, senhaTentativa, nivel);
 		}
 		return mensagem;
 	}
 
-	public String excluir(String idInformado, String email, String senha) {
+	public String excluir(UsuarioVO usuarioVO, String email, String senha) {
 		String mensagem = "";
 
-		if (idInformado == null || idInformado.trim().isEmpty()) {
-			mensagem = "Preenche o Id";
-		}
 		if (email == null || email.trim().isEmpty()) {
 			mensagem = "Preenche o email";
 		}
@@ -55,7 +44,7 @@ public class Controller {
 		}
 		if (mensagem.isEmpty()) {
 			UsuarioVO usuarioNormal = new UsuarioVO();
-			usuarioNormal.setId(Integer.parseInt(idInformado));
+			usuarioNormal.setId(usuarioVO.getId());
 
 			UsuarioVO usuarioADM = new UsuarioVO();
 			usuarioADM.setEmail(email);
@@ -69,7 +58,7 @@ public class Controller {
 
 	public ArrayList<UsuarioVO> listarPorNivel(NivelVO nivel) throws Exception {
 		if (nivel == null) {
-			throw new Exception("Selecione um nível");
+			JOptionPane.showMessageDialog(null, "Preenche o nível");
 		}
 		UsuarioBO usuarioBO = new UsuarioBO();
 		usuarioBO.listarPorNivel(nivel);
@@ -77,11 +66,10 @@ public class Controller {
 	}
 
 	public UsuarioVO listarPorNome(String nome) throws Exception {
-		if (nome == null) {
-			throw new Exception("Selecione um usuário");
+		if (nome == null || nome.isEmpty() || nome.trim().length() < 3) {
+			JOptionPane.showMessageDialog(null, "Nome de no mínimo 3 caracteres");
 		}
 		UsuarioBO usuarioBO = new UsuarioBO();
-		usuarioBO.listarPorNome(nome);
 		return usuarioBO.listarPorNome(nome);
 	}
 

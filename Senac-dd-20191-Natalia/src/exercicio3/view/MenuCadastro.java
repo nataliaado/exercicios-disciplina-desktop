@@ -18,7 +18,7 @@ public class MenuCadastro {
 		novoUsuario.setNome(nomeInformado);
 		novoUsuario.setEmail(email);
 		novoUsuario.setSenha(senha);
-		novoUsuario.setNivel(nivel);
+		//novoUsuario.setNivel(nivel);
 
 		JOptionPane.showMessageDialog(null, "Usuário salvo!\n" + novoUsuario.toString());
 	}
