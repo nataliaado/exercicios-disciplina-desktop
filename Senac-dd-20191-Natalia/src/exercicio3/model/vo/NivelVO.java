@@ -4,7 +4,7 @@ public class NivelVO {
 
 	private int id;
 	private String descricao;
-	
+
 	public NivelVO() {
 		super();
 	}
@@ -13,7 +13,7 @@ public class NivelVO {
 		super();
 		this.id = id;
 		this.descricao = descricao;
-		
+
 	}
 
 	public int getId() {
@@ -30,6 +30,11 @@ public class NivelVO {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	@Override
+	public String toString() {
+		return "NivelVO [id=" + id + ", descricao=" + descricao + "]";
 	}
 
 }

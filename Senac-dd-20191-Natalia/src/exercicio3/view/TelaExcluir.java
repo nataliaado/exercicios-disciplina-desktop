@@ -23,6 +23,8 @@ public class TelaExcluir {
 	private JTextField txtEmail;
 	private JPasswordField pfSenha;
 	private ArrayList<UsuarioVO> usuarios;
+	JComboBox cbUsuarios = new JComboBox();
+
 
 	/**
 	 * Launch the application.
@@ -51,7 +53,7 @@ public class TelaExcluir {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		consultarUsuarios();
+		atualizarUsuarios();
 		frame = new JFrame();
 		frame.setTitle("Excluir Usuário");
 		frame.setBounds(100, 100, 405, 210);
@@ -78,8 +80,6 @@ public class TelaExcluir {
 		JLabel lblUsuario = new JLabel("Usuário:");
 		lblUsuario.setBounds(20, 20, 60, 15);
 		frame.getContentPane().add(lblUsuario);
-
-		JComboBox cbUsuarios = new JComboBox();
 
 		cbUsuarios.setBounds(80, 20, 300, 20);
 		frame.getContentPane().add(cbUsuarios);
@@ -111,8 +111,9 @@ public class TelaExcluir {
 		frame.getContentPane().add(btnLimpar);
 	}
 
-	private void consultarUsuarios() {
+	private void atualizarUsuarios() {
 		Controller controller = new Controller();
 		usuarios = controller.listarTodos();
+		cbUsuarios.setModel(new DefaultComboBoxModel(usuarios.toArray()));
 	}
 }

@@ -8,7 +8,7 @@ public class NivelBO {
 
 	public ArrayList<NivelVO> consultarNivel() {
 		NivelDAO nivelDAO = new NivelDAO();
-		return nivelDAO.consultarNivel();
+		return nivelDAO.consultarNiveis();
 	}
 
 }

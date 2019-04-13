@@ -9,7 +9,6 @@ public class UsuarioBO {
 
 	public String listarPorNivel(UsuarioVO usuarioVO) {
 		String mensagem = "";
-
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 
 		if (usuarioVO.getNivelVO() == null) {
@@ -42,14 +41,14 @@ public class UsuarioBO {
 		return usuarioDAO.listarPorNivel(nivel);
 	}
 
-	public String excluir(UsuarioVO usuarioNormal, UsuarioVO usuarioADM) {
+	public String excluir(UsuarioVO usuarioVO, UsuarioVO usuarioADM) {
 		String mensagem = "";
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 
 		if (usuarioDAO.existeRegistroADM(usuarioADM) == false) {
 			mensagem = "Usuário Admin de e-mail e senha inexistente";
 		} else {
-			int statusPersistencia = usuarioDAO.excluir(usuarioNormal);
+			int statusPersistencia = usuarioDAO.excluir(usuarioVO);
 
 			if (statusPersistencia == 1) {
 				mensagem = "Usuário excluido com sucesso";

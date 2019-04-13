@@ -9,7 +9,7 @@ import exercicio3.model.vo.NivelVO;
 
 public class NivelDAO {
 
-	public ArrayList<NivelVO> consultarNivel() {
+	public ArrayList<NivelVO> consultarNiveis() {
 		Connection conn = Banco.getConnection();
 		Statement stmt = (Statement) Banco.getStatement(conn);
 		ResultSet resultado = null;
