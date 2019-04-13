@@ -13,20 +13,27 @@ public class Controller {
 		String mensagem = "";
 
 		if (nome == null || nome.trim().isEmpty()) {
-			mensagem = "Preenche o nome";
-		} else if (email == null || email.trim().isEmpty()) {
-			mensagem = "Preenche o email";
-		} else if (nivel == null) {
-			mensagem = "Preenche o nivel";
-		} else if (senhaTentativa == null || senhaTentativa.trim().isEmpty()) {
-			mensagem = "Preenche a senha";
-		} else if (senhaConfirma == null || senhaConfirma.trim().isEmpty()) {
-			mensagem = "Preenche a senha de Confirmação";
-		} else if (senhaTentativa != senhaConfirma) {
-			mensagem = "Senha incorreta, digite novamente";
-		} else if (!senhaTentativa.equals(senhaConfirma)) {
-			mensagem = "Senha incorreta, digite novamente!";
-		} else if (mensagem.isEmpty()) {
+			mensagem += "Preenche o nome";
+		}
+		if (email == null || email.trim().isEmpty()) {
+			mensagem += "Preenche o email";
+		}
+		if (nivel == null) {
+			mensagem += "Preenche o nivel";
+		}
+		if (senhaTentativa == null || senhaTentativa.trim().isEmpty()) {
+			mensagem += "Preenche a senha";
+		}
+		if (senhaConfirma == null || senhaConfirma.trim().isEmpty()) {
+			mensagem += "Preenche a senha de Confirmação";
+		}
+		if (senhaTentativa != senhaConfirma) {
+			mensagem += "Senha incorreta, digite novamente";
+		}
+		if (!senhaTentativa.equals(senhaConfirma)) {
+			mensagem += "Senha incorreta, digite novamente!";
+		}
+		if (mensagem.isEmpty()) {
 			UsuarioBO usuarioBO = new UsuarioBO();
 			mensagem = usuarioBO.salvar(nome, email, senhaTentativa, nivel);
 		}
