@@ -1,11 +1,12 @@
 package exercicio3.controller;
 
-import exercicio3.model.bo.UsuarioBO;
-import exercicio3.model.vo.NivelVO;
-import exercicio3.model.vo.UsuarioVO;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+
+import exercicio3.model.bo.UsuarioBO;
+import exercicio3.model.vo.NivelVO;
+import exercicio3.model.vo.UsuarioVO;
 
 public class Controller {
 
@@ -63,18 +64,18 @@ public class Controller {
 		return mensagem;
 	}
 
-	public ArrayList<UsuarioVO> listarPorNivel(NivelVO nivel) throws Exception {
+	public ArrayList<UsuarioVO> listarPorNivel(NivelVO nivel) {
 		if (nivel == null) {
-			JOptionPane.showMessageDialog(null, "Preenche o nível");
+			JOptionPane.showMessageDialog(null, "Escolha o nivel");
 		}
 		UsuarioBO usuarioBO = new UsuarioBO();
-		usuarioBO.listarPorNivel(nivel);
 		return usuarioBO.listarPorNivel(nivel);
 	}
 
-	public UsuarioVO listarPorNome(String nome) throws Exception {
+	public UsuarioVO listarPorNome(String nome) {
+
 		if (nome == null || nome.isEmpty() || nome.trim().length() < 3) {
-			JOptionPane.showMessageDialog(null, "Nome de no mínimo 3 caracteres");
+			JOptionPane.showMessageDialog(null, "Nome deve possuir no minimo 3 caracteres");
 		}
 		UsuarioBO usuarioBO = new UsuarioBO();
 		return usuarioBO.listarPorNome(nome);
