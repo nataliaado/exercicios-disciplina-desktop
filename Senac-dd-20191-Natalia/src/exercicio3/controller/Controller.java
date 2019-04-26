@@ -63,7 +63,7 @@ public class Controller {
 		return mensagem;
 	}
 
-	public ArrayList<UsuarioVO> listarPorNivel(NivelVO nivel) throws Exception {
+	public ArrayList<UsuarioVO> listarPorNivel(NivelVO nivel) {
 		if (nivel == null) {
 			JOptionPane.showMessageDialog(null, "Preenche o nível");
 		}
@@ -72,7 +72,7 @@ public class Controller {
 		return usuarioBO.listarPorNivel(nivel);
 	}
 
-	public UsuarioVO listarPorNome(String nome) throws Exception {
+	public UsuarioVO listarPorNome(String nome) {
 		if (nome == null || nome.isEmpty() || nome.trim().length() < 3) {
 			JOptionPane.showMessageDialog(null, "Nome de no mínimo 3 caracteres");
 		}

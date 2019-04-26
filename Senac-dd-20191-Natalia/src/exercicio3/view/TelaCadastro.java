@@ -130,13 +130,13 @@ public class TelaCadastro {
 		JButton button = new JButton("Salvar");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String pfSenha = new String(pfSenha.getPassword());
-				String pfConfirmacaoSenha = new String(pfConfirmacaoSenha.getPassword());
+				String senha = new String(pfSenha.getPassword());
+				String confirmacaoSenha = new String(pfConfirmacaoSenha.getPassword());
 				NivelVO nivel = (NivelVO) cbNivel.getModel().getSelectedItem();
 
 				Controller controller = new Controller();
 				JOptionPane.showMessageDialog(null,
-						controller.salvar(txtNome.getText(), txtEmail.getText(), nivel, pfConfirmacaoSenha, pfSenha));
+						controller.salvar(txtNome.getText(), txtEmail.getText(), nivel, confirmacaoSenha, senha));
 			}
 		});
 		button.setBounds(20, 155, 160, 35);
