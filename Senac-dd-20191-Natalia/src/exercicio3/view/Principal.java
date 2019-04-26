@@ -10,8 +10,6 @@ import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
 import java.awt.event.InputEvent;
-import javax.swing.JDesktopPane;
-import java.awt.BorderLayout;
 
 public class Principal {
 
@@ -54,9 +52,6 @@ public class Principal {
 					JMenuItem mntmNewMenuItem = new JMenuItem("Produtos");
 					mntmNewMenuItem.setIcon(new ImageIcon(Principal.class.getResource("/icones/icons8-move-by-trolley-64.png")));
 					menuBar.add(mntmNewMenuItem);
-					
-					JDesktopPane desktopPane = new JDesktopPane();
-					frame.getContentPane().add(desktopPane, BorderLayout.CENTER);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
