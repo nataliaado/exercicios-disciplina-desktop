@@ -65,16 +65,15 @@ public class Controller {
 
 	public ArrayList<UsuarioVO> listarPorNivel(NivelVO nivel) {
 		if (nivel == null) {
-			JOptionPane.showMessageDialog(null, "Preenche o nível");
+			JOptionPane.showMessageDialog(null, "Escolha o nivel");
 		}
 		UsuarioBO usuarioBO = new UsuarioBO();
-		usuarioBO.listarPorNivel(nivel);
 		return usuarioBO.listarPorNivel(nivel);
 	}
-
 	public UsuarioVO listarPorNome(String nome) {
+
 		if (nome == null || nome.isEmpty() || nome.trim().length() < 3) {
-			JOptionPane.showMessageDialog(null, "Nome de no mínimo 3 caracteres");
+			JOptionPane.showMessageDialog(null, "Nome deve possuir no minimo 3 caracteres");
 		}
 		UsuarioBO usuarioBO = new UsuarioBO();
 		return usuarioBO.listarPorNome(nome);
