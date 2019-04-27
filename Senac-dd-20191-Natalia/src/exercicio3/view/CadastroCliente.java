@@ -15,12 +15,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class CadastroCliente extends JInternalFrame {
+	
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JPanel contentPane;
-	private JDesktopPane desktopPane;
-	CadastroCliente cadastroCliente = null;
 	
 	/**
 	 * Launch the application.
@@ -81,13 +79,7 @@ public class CadastroCliente extends JInternalFrame {
 		textField_2.setColumns(10);
 		
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				cadastroCliente = new CadastroCliente();
-				desktopPane.add(cadastroCliente);
-				cadastroCliente.add(cadastroCliente);
-			}
-		});
+		
 		btnSalvar.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnSalvar.setBounds(32, 295, 278, 25);
 		getContentPane().add(btnSalvar);
