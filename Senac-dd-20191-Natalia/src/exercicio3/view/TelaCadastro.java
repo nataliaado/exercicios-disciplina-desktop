@@ -61,7 +61,7 @@ public class TelaCadastro {
 
 		frmCadastroDeUsuarios = new JFrame();
 		frmCadastroDeUsuarios.setTitle("Cadastro de usuários");
-		frmCadastroDeUsuarios.setBounds(100, 100, 370, 220);
+		frmCadastroDeUsuarios.setBounds(100, 100, 407, 256);
 		frmCadastroDeUsuarios.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCadastroDeUsuarios.getContentPane().setLayout(null);
 
