@@ -39,7 +39,7 @@ public class TelaCadastro {
 				try {
 					TelaCadastro window = new TelaCadastro();
 					window.frmCadastroDeUsuarios.setVisible(true);
-				}catch (Exception e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}

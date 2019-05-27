@@ -1,4 +1,4 @@
-package exercicio3.view;
+package exercicio4.view;
 
 import java.awt.EventQueue;
 
@@ -14,7 +14,7 @@ import javax.swing.JDesktopPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class CadastroCliente extends JInternalFrame {
+public class TelaCadastroCliente extends JInternalFrame {
 	
 	private JTextField textField;
 	private JTextField textField_1;
@@ -27,7 +27,7 @@ public class CadastroCliente extends JInternalFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CadastroCliente frame = new CadastroCliente();
+					TelaCadastroCliente frame = new TelaCadastroCliente();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +39,7 @@ public class CadastroCliente extends JInternalFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CadastroCliente() {
+	public TelaCadastroCliente() {
 		setBounds(100, 100, 350, 376);
 		getContentPane().setLayout(null);
 		

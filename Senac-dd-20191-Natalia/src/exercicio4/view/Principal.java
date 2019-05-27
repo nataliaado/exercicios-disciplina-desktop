@@ -1,4 +1,4 @@
-package exercicio3.view;
+package exercicio4.view;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -23,7 +23,7 @@ public class Principal extends JFrame {
 
 	private JPanel contentPane;
 	private JDesktopPane desktopPane;
-	CadastroCliente cadastroCliente = null;
+	TelaCadastroCliente cadastroCliente = null;
 
 	/**
 	 * Launch the application.
@@ -59,9 +59,9 @@ public class Principal extends JFrame {
 		mntmCadastrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				cadastroCliente = new CadastroCliente();
-				desktopPane.add(cadastroCliente);
-				cadastroCliente.show();
+				//cadastroCliente = new CadastroCliente();
+				//desktopPane.add(cadastroCliente);
+				//cadastroCliente.show();
 			}
 		});
 		mntmCadastrar.setIcon(new ImageIcon(Principal.class.getResource("/icones/icons8-adicionar-usu\u00E1rio-masculino.png")));

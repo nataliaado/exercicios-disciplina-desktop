@@ -1,4 +1,4 @@
-package exercicio3.view;
+package exercicio4.view;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
