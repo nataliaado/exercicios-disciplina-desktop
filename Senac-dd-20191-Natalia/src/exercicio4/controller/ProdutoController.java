@@ -7,7 +7,7 @@ import exercicio4.model.seletor.ProdutoSeletor;
 import exercicio4.model.vo.Produto;
 
 public class ProdutoController {
-	
+
 	public static final String TIPO_RELATORIO_XLS = "xls";
 	public static final String TIPO_RELATORIO_PDF = "pdf";
 
@@ -72,8 +72,9 @@ public class ProdutoController {
 		return bo.listarProdutos(seletor);
 	}
 
-	//public String gerarPlanilha(List<Produto> produtosConsultados, String caminho) {
-	//	GeradorPlanilha geradorExcel = new GeradorPlanilha();
-	//	return geradorExcel.gerarPlanilhaProdutos(caminho, produtosConsultados);
+	// public String gerarPlanilha(List<Produto> produtosConsultados, String
+	// caminho) {
+	// GeradorPlanilha geradorExcel = new GeradorPlanilha();
+	// return geradorExcel.gerarPlanilhaProdutos(caminho, produtosConsultados);
 //	}
 }
