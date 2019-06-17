@@ -13,9 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class TelaAlterar extends JInternalFrame {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField txtNome;
+	private JTextField txtCep;
 
 	/**
 	 * Launch the application.
@@ -49,31 +48,22 @@ public class TelaAlterar extends JInternalFrame {
 		lblNome.setBounds(12, 39, 66, 15);
 		getContentPane().add(lblNome);
 		
-		textField = new JTextField();
-		textField.setBounds(12, 59, 295, 19);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		txtNome = new JTextField();
+		txtNome.setBounds(12, 59, 295, 19);
+		getContentPane().add(txtNome);
+		txtNome.setColumns(10);
 		
-		JLabel lblCep = new JLabel("CEP:");
+		JLabel lblCep = new JLabel("Preço:");
 		lblCep.setBounds(12, 90, 66, 15);
 		getContentPane().add(lblCep);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(12, 109, 295, 19);
-		getContentPane().add(textField_1);
-		textField_1.setColumns(10);
-		
-		JLabel lblDataNascimento = new JLabel("Data Nascimento:");
-		lblDataNascimento.setBounds(12, 140, 131, 15);
-		getContentPane().add(lblDataNascimento);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(12, 160, 295, 19);
-		getContentPane().add(textField_2);
+		txtCep = new JTextField();
+		txtCep.setBounds(12, 109, 295, 19);
+		getContentPane().add(txtCep);
+		txtCep.setColumns(10);
 		
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(97, 190, 114, 25);
+		btnSalvar.setBounds(120, 149, 114, 25);
 		getContentPane().add(btnSalvar);
 
 	}

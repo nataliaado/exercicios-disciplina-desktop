@@ -16,9 +16,9 @@ import java.awt.event.ActionEvent;
 
 public class TelaCadastroCliente extends JInternalFrame {
 	
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField txtNome;
+	private JTextField txtCep;
+	private JTextField txtDataNascimento;
 	
 	/**
 	 * Launch the application.
@@ -53,30 +53,30 @@ public class TelaCadastroCliente extends JInternalFrame {
 		lblNome.setBounds(22, 67, 56, 16);
 		getContentPane().add(lblNome);
 		
-		textField = new JTextField();
-		textField.setBounds(32, 88, 278, 22);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		txtNome = new JTextField();
+		txtNome.setBounds(32, 88, 278, 22);
+		getContentPane().add(txtNome);
+		txtNome.setColumns(10);
 		
 		JLabel lblCep = new JLabel("CEP:");
 		lblCep.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblCep.setBounds(22, 134, 56, 16);
 		getContentPane().add(lblCep);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(32, 163, 278, 22);
-		getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		txtCep = new JTextField();
+		txtCep.setBounds(32, 163, 278, 22);
+		getContentPane().add(txtCep);
+		txtCep.setColumns(10);
 		
 		JLabel lblDataNascimento = new JLabel("Data Nascimento:");
 		lblDataNascimento.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblDataNascimento.setBounds(12, 212, 135, 16);
 		getContentPane().add(lblDataNascimento);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(32, 241, 278, 22);
-		getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		txtDataNascimento = new JTextField();
+		txtDataNascimento.setBounds(32, 241, 278, 22);
+		getContentPane().add(txtDataNascimento);
+		txtDataNascimento.setColumns(10);
 		
 		JButton btnSalvar = new JButton("Salvar");
 		

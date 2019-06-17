@@ -1,6 +1,5 @@
 package exercicio4.view;
 
-import java.awt.BorderLayout;
 import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -13,15 +12,15 @@ import java.net.URLEncoder;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
 
-public class TelaAjuda extends JFrame {
+public class TelaAjuda extends JInternalFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField txtAjuda;
 
 	/**
 	 * Launch the application.
@@ -59,13 +58,13 @@ public class TelaAjuda extends JFrame {
 		getContentPane().add(lblDigiteAquiSua, "2, 6, 2, 1, left, top");
 		
 
-		JButton button = new JButton("Pesquisar");
-		button.setBounds(123, 101, 189, 19);
-		button.addMouseListener(new MouseAdapter() {
+		JButton btn = new JButton("Pesquisar");
+		btn.setBounds(123, 101, 189, 19);
+		btn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					URI uri = new URI("https://www.google.com/search?q=" + URLEncoder.encode(textField.getText(), "UTF-8"));
+					URI uri = new URI("https://www.google.com/search?q=" + URLEncoder.encode(txtAjuda.getText(), "UTF-8"));
 					Desktop.getDesktop().browse(uri);
 				} catch (IOException ex) {
 					ex.printStackTrace();
@@ -74,10 +73,10 @@ public class TelaAjuda extends JFrame {
 				}
 			}
 		});
-		getContentPane().add(button, "2, 10");
+		getContentPane().add(btn, "2, 10");
 		
 		JButton btnGoogle = new JButton("Google");
-		btnGoogle.setBounds(317, 231, 107, 19);
+		btnGoogle.setBounds(158, 133, 107, 19);
 		btnGoogle.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -93,10 +92,10 @@ public class TelaAjuda extends JFrame {
 		});
 		getContentPane().add(btnGoogle, "2, 14");
 		
-		textField = new JTextField();
-		textField.setBounds(30, 71, 373, 20);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		txtAjuda = new JTextField();
+		txtAjuda.setBounds(30, 71, 373, 20);
+		getContentPane().add(txtAjuda);
+		txtAjuda.setColumns(10);
 
 	}
 }

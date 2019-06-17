@@ -24,7 +24,7 @@ import exercicio7.controller.ProdutoController;
 import exercicio7.model.seletor.ProdutoSeletor;
 import exercicio7.model.vo.Produto;
 
-public class TelaListagemProdutos extends JFrame {
+public class TelaListagemProduto extends JFrame {
 
 	private static final String COR_AZUL = "Azul";
 	private static final String COR_AMARELO = "Amarelo";
@@ -41,13 +41,14 @@ public class TelaListagemProdutos extends JFrame {
 	private DatePicker dtInicioCadastro;
 	private DatePicker dtFimCadastro;
 	private int paginaAtual = 1;
+	private int paginaTotal = 1;
 
 	private List<Produto> produtosConsultados;
 	private JTextField txtNome;
 	private JTextField txtPeso;
 	private JLabel lblPaginaAtual;
 	private JLabel lbMax;
-	private int paginaTotal = 1;
+
 	private JButton btnProximo;
 
 	/**
@@ -57,7 +58,7 @@ public class TelaListagemProdutos extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaListagemProdutos frame = new TelaListagemProdutos();
+					TelaListagemProduto frame = new TelaListagemProduto();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -71,7 +72,7 @@ public class TelaListagemProdutos extends JFrame {
 	 * 
 	 * @param cbCor
 	 */
-	public TelaListagemProdutos() {
+	public TelaListagemProduto() {
 		setTitle("Consulta de Produtos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 480, 530);
@@ -85,8 +86,8 @@ public class TelaListagemProdutos extends JFrame {
 		btnConsultar.setBounds(160, 215, 150, 40);
 		contentPane.add(btnConsultar);
 
-		String[] cores = { "---Selecione---", TelaListagemProdutos.COR_AZUL, TelaListagemProdutos.COR_AMARELO,
-				TelaListagemProdutos.COR_PRETO, TelaListagemProdutos.COR_VERDE, TelaListagemProdutos.COR_VERMELHO };
+		String[] cores = { "---Selecione---", TelaListagemProduto.COR_AZUL, TelaListagemProduto.COR_AMARELO,
+				TelaListagemProduto.COR_PRETO, TelaListagemProduto.COR_VERDE, TelaListagemProduto.COR_VERMELHO };
 
 		JLabel lblFiltroNome = new JLabel("Nome:");
 		lblFiltroNome.setBounds(10, 40, 50, 15);

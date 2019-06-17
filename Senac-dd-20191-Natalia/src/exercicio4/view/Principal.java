@@ -24,7 +24,10 @@ public class Principal extends JFrame {
 	private JPanel contentPane;
 	private JDesktopPane desktopPane;
 	TelaCadastroCliente cadastroCliente = null;
-
+	TelaListarProdutos listarProdutos = null;
+	TelaExcluirProduto excluirProduto = null;
+	TelaAlterar  alterarProduto = null;
+	
 	/**
 	 * Launch the application.
 	 */

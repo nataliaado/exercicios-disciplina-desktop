@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 public class TelaExcluirProduto extends JInternalFrame {
-	private JTextField textField;
+	private JTextField txtId;
 
 	/**
 	 * Launch the application.
@@ -47,10 +47,10 @@ public class TelaExcluirProduto extends JInternalFrame {
 		lblId.setBounds(30, 36, 46, 14);
 		getContentPane().add(lblId);
 		
-		textField = new JTextField();
-		textField.setBounds(45, 36, 86, 20);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		txtId = new JTextField();
+		txtId.setBounds(45, 36, 86, 20);
+		getContentPane().add(txtId);
+		txtId.setColumns(10);
 		
 		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.setBounds(42, 67, 89, 23);
