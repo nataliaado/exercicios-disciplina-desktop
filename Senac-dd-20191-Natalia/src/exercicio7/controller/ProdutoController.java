@@ -68,4 +68,8 @@ public class ProdutoController {
 	public List<Produto> listarProdutos(ProdutoSeletor seletor) {
 		return produtoBO.listarProdutos(seletor);
 	}
+	
+	public int contarProdutos(ProdutoSeletor seletor) {
+		return produtoBO.contarProdutos(seletor);
+	}
 }

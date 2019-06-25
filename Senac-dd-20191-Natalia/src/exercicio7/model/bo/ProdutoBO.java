@@ -43,4 +43,8 @@ public class ProdutoBO {
 	public List<Produto> listarProdutos(ProdutoSeletor seletor) {
 		return produtoDAO.listarComSeletor(seletor);
 	}
+	
+	public int contarProdutos(ProdutoSeletor seletor) {
+		return produtoDAO.ContarComSeletor(seletor);
+	}
 }

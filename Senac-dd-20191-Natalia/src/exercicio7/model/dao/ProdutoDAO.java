@@ -308,4 +308,30 @@ public class ProdutoDAO {
 		}
 		return p;
 	}
+	public int ContarComSeletor(ProdutoSeletor seletor) {
+		String sql = " SELECT * FROM PRODUTO p";
+
+		if (seletor.temFiltro()) {
+			sql = criarFiltros(seletor, sql);
+		}
+
+		if (seletor.temPaginacao()) {
+			// TODO continuar...
+			sql += " LIMIT " + seletor.getLimite() + " OFFSET " + seletor.getOffset();
+		}
+		Connection conexao = Banco.getConnection();
+		PreparedStatement prepStmt = Banco.getPreparedStatement(conexao);
+		int cont = 0;
+
+		try {
+			ResultSet result = prepStmt.executeQuery();
+
+			while (result.next()) {
+				cont++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cont;
+	}
 }

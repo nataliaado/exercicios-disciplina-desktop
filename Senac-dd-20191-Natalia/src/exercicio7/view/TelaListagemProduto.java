@@ -233,7 +233,7 @@ public class TelaListagemProduto extends JFrame {
 	}
 
 	protected void consultarProdutos() {
-		lblPaginaAtual.setText(paginaAtual + "");
+		lblPaginaAtual.setText(paginaAtual + "/");
 
 		ProdutoController controlador = new ProdutoController();
 		ProdutoSeletor seletor = new ProdutoSeletor();
