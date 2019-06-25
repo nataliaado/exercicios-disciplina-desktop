@@ -26,8 +26,10 @@ public class Principal extends JFrame {
 	TelaCadastroCliente cadastroCliente = null;
 	TelaListarProdutos listarProdutos = null;
 	TelaExcluirProduto excluirProduto = null;
-	TelaAlterar  alterarProduto = null;
-	
+	TelaAlterar alterarProduto = null;
+	TelaAjuda ajuda = null;
+	TelaSobre sobre = null;
+
 	/**
 	 * Launch the application.
 	 */
@@ -49,76 +51,139 @@ public class Principal extends JFrame {
 	 */
 	public Principal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 574, 394);
-		
+		setBounds(100, 100, 648, 443);
+
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		
+
 		JMenu mnClientes = new JMenu("Clientes");
-		mnClientes.setIcon(new ImageIcon(Principal.class.getResource("/icones/icons8-grupo-de-usu\u00E1rio-homem-homem-50.png")));
+		mnClientes.setIcon(
+				new ImageIcon(Principal.class.getResource("/icones/icons8-grupo-de-usu\u00E1rio-homem-homem-50.png")));
 		menuBar.add(mnClientes);
-		
+
 		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
 		mntmCadastrar.addMouseListener(new MouseAdapter() {
-			@Override
+
 			public void mouseClicked(MouseEvent e) {
-				//cadastroCliente = new CadastroCliente();
-				//desktopPane.add(cadastroCliente);
-				//cadastroCliente.show();
+				if (cadastroCliente == null) {
+					desktopPane.add(cadastroCliente);
+					cadastroCliente.show();
+				} else if (cadastroCliente != null) {
+					cadastroCliente.setVisible(true);
+				}
+
 			}
 		});
-		mntmCadastrar.setIcon(new ImageIcon(Principal.class.getResource("/icones/icons8-adicionar-usu\u00E1rio-masculino.png")));
+		mntmCadastrar.setIcon(
+				new ImageIcon(Principal.class.getResource("/icones/icons8-adicionar-usu\u00E1rio-masculino.png")));
 		mntmCadastrar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
 		mnClientes.add(mntmCadastrar);
-		
+
 		JMenuItem mntmListar = new JMenuItem("Listar");
+		JMenuItem mntmAlteraoDeProduto = new JMenuItem("Alteração de Produto");
+		mntmAlteraoDeProduto.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				if (alterarProduto == null) {
+					alterarProduto = new TelaAlterar();
+					desktopPane.add(alterarProduto);
+					alterarProduto.show();
+				} else if (alterarProduto != null) {
+					alterarProduto.setVisible(true);
+				}
+			}
+		});
 		mntmListar.setIcon(new ImageIcon(Principal.class.getResource("/icones/icons8-card\u00E1pio.png")));
 		mntmListar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, InputEvent.CTRL_MASK));
 		mnClientes.add(mntmListar);
-		
+
 		JMenuItem mntmRelatrio = new JMenuItem("Relat\u00F3rio");
 		mntmRelatrio.setIcon(new ImageIcon(Principal.class.getResource("/icones/icons8-arquivo-50.png")));
 		mntmRelatrio.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, InputEvent.CTRL_MASK));
 		mnClientes.add(mntmRelatrio);
-		
+
 		JMenu mnProdutos = new JMenu("Produtos");
 		mnProdutos.setIcon(new ImageIcon(Principal.class.getResource("/icones/icons8-move-by-trolley-64.png")));
 		menuBar.add(mnProdutos);
-		
+
+		JMenuItem mntmExcluirProduto = new JMenuItem("Excluir Produto");
+		mntmExcluirProduto.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (excluirProduto == null) {
+					desktopPane.add(excluirProduto);
+					excluirProduto.show();
+				} else if (excluirProduto != null) {
+					excluirProduto.setVisible(true);
+				}
+
+			}
+		});
+		mnProdutos.add(mntmExcluirProduto);
+
+		JMenuItem mntmListarProdutos = new JMenuItem("Listar Produtos");
+		mntmListarProdutos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (listarProdutos == null) {
+					desktopPane.add(listarProdutos);
+					listarProdutos.show();
+				} else if (listarProdutos != null) {
+					listarProdutos.setVisible(true);
+				}
+			}
+		});
+		mnProdutos.add(mntmListarProdutos);
+
 		JMenu mnFuncionrios = new JMenu("Funcion\u00E1rios");
-		mnFuncionrios.setIcon(new ImageIcon(Principal.class.getResource("/icones/icons8-gest\u00E3o-de-cliente-64.png")));
+		mnFuncionrios
+				.setIcon(new ImageIcon(Principal.class.getResource("/icones/icons8-gest\u00E3o-de-cliente-64.png")));
 		menuBar.add(mnFuncionrios);
-		
+
 		JMenu mnSobre = new JMenu("Sobre");
-		mnSobre.setIcon(new ImageIcon(Principal.class.getResource("/icones/icons8-cart\u00E3o-de-cr\u00E9dito-sem-contato.png")));
+		mnSobre.setIcon(new ImageIcon(
+				Principal.class.getResource("/icones/icons8-cart\u00E3o-de-cr\u00E9dito-sem-contato.png")));
 		menuBar.add(mnSobre);
-		
+
 		JMenuItem mntmManual = new JMenuItem("Manual");
-		mntmManual.setIcon(new ImageIcon(Principal.class.getResource("/icones/icons8-gerente-de-informa\u00E7\u00F5es-do-cliente.png")));
+		mntmManual.setIcon(new ImageIcon(
+				Principal.class.getResource("/icones/icons8-gerente-de-informa\u00E7\u00F5es-do-cliente.png")));
 		mntmManual.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F10, 0));
 		mnSobre.add(mntmManual);
-		
+
 		JMenuItem mntmAjuda = new JMenuItem("Ajuda");
+		mntmAjuda.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (ajuda == null) {
+					ajuda = new TelaAjuda();
+					desktopPane.add(ajuda);
+					ajuda.setVisible(true);
+				} else if (ajuda != null) {
+					ajuda.setVisible(true);
+				}
+			}
+		});
 		mntmAjuda.setIcon(new ImageIcon(Principal.class.getResource("/icones/icons8-suporte-on-line-filled-50.png")));
 		mntmAjuda.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F11, 0));
 		mnSobre.add(mntmAjuda);
-		
+
 		JMenuItem mntmAutores = new JMenuItem("Autores");
 		mntmAutores.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				TelaSobre s = new TelaSobre();
-				s.setVisible(true);
+				if (sobre == null) {
+					desktopPane.add(sobre);
+					sobre.setVisible(true);
+				} else if (sobre != null) {
+					sobre.setVisible(true);
+				}
 			}
 		});
 		mntmAutores.setIcon(new ImageIcon(Principal.class.getResource("/icones/icons8-charlie-chaplin-64.png")));
 		mntmAutores.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F12, 0));
 		mnSobre.add(mntmAutores);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
-		
+
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBackground(Color.WHITE);
 		contentPane.add(desktopPane, BorderLayout.CENTER);
