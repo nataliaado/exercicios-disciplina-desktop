@@ -105,29 +105,29 @@ public class TelaCadastro {
 						txtEmail.setColumns(10);
 						frmCadastroDeUsuarios.getContentPane().add(txtEmail);
 				
-				JLabel label = new JLabel("");
-				frmCadastroDeUsuarios.getContentPane().add(label);
+				JLabel lbl_1 = new JLabel("");
+				frmCadastroDeUsuarios.getContentPane().add(lbl_1);
 				
-				JLabel label_1 = new JLabel("");
-				frmCadastroDeUsuarios.getContentPane().add(label_1);
+				JLabel lbl_2 = new JLabel("");
+				frmCadastroDeUsuarios.getContentPane().add(lbl_2);
 				
-				JLabel label_2 = new JLabel("");
-				frmCadastroDeUsuarios.getContentPane().add(label_2);
+				JLabel lbl_3 = new JLabel("");
+				frmCadastroDeUsuarios.getContentPane().add(lbl_3);
 				
-				JLabel label_3 = new JLabel("");
-				frmCadastroDeUsuarios.getContentPane().add(label_3);
+				JLabel lbl_4 = new JLabel("");
+				frmCadastroDeUsuarios.getContentPane().add(lbl_4);
 				
-				JLabel label_4 = new JLabel("");
-				frmCadastroDeUsuarios.getContentPane().add(label_4);
+				JLabel lbl_5 = new JLabel("");
+				frmCadastroDeUsuarios.getContentPane().add(lbl_5);
 				
-				JLabel label_5 = new JLabel("");
-				frmCadastroDeUsuarios.getContentPane().add(label_5);
+				JLabel lbl_6 = new JLabel("");
+				frmCadastroDeUsuarios.getContentPane().add(lbl_6);
 				
-				JLabel label_6 = new JLabel("");
-				frmCadastroDeUsuarios.getContentPane().add(label_6);
+				JLabel lbl_7 = new JLabel("");
+				frmCadastroDeUsuarios.getContentPane().add(lbl_7);
 				
-						JButton button = new JButton("Salvar");
-						button.addActionListener(new ActionListener() {
+						JButton btnSalvar = new JButton("Salvar");
+						btnSalvar.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
 								String senha = new String(pfSenha.getPassword());
 								String confirmacaoSenha = new String(pfConfirmacaoSenha.getPassword());
@@ -138,7 +138,7 @@ public class TelaCadastro {
 										controller.salvar(txtNome.getText(), txtEmail.getText(), nivel, confirmacaoSenha, senha));
 							}
 						});
-						frmCadastroDeUsuarios.getContentPane().add(button);
+						frmCadastroDeUsuarios.getContentPane().add(btnSalvar);
 				
 						JButton btnLimpar = new JButton("Limpar");
 						btnLimpar.addActionListener(new ActionListener() {
@@ -151,21 +151,6 @@ public class TelaCadastro {
 							}
 						});
 						frmCadastroDeUsuarios.getContentPane().add(btnLimpar);
-				
-				JLabel label_7 = new JLabel("");
-				frmCadastroDeUsuarios.getContentPane().add(label_7);
-				
-				JLabel label_8 = new JLabel("");
-				frmCadastroDeUsuarios.getContentPane().add(label_8);
-				
-				JLabel label_9 = new JLabel("");
-				frmCadastroDeUsuarios.getContentPane().add(label_9);
-				
-				JLabel label_10 = new JLabel("");
-				frmCadastroDeUsuarios.getContentPane().add(label_10);
-				
-				JLabel label_11 = new JLabel("");
-				frmCadastroDeUsuarios.getContentPane().add(label_11);
 	}
 
 	private void consultarNiveis() {
