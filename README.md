@@ -1,4 +1,4 @@
-# senac-dd-natalia
+# Java Desktop
 
 Repositório da disciplina de Desenvolvimento Desktop 2019/2
 
